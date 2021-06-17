@@ -72,6 +72,76 @@
       "date": "2021-06-09T15:43:00.000Z",
       "time": "21:00",
       "attendees": []
+    },
+    {
+      "id": 3867790,
+      "category": "animal welfare",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "tesst",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 1514294,
+      "category": "nature",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "asd",
+      "description": "asd",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 9567633,
+      "category": "food",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "asdasd",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 3581627,
+      "category": "community",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "asd",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 7597996,
+      "category": "housing",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "asd",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
