@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    count: 0,
     user: {
       id: "asad213",
       name: "Kevin Carlsen",
@@ -41,8 +42,22 @@ export default new Vuex.Store({
    *
    */
 
-  mutations: {},
-  actions: {},
+  mutations: {
+    INCREMENT_COUNT(state, payload) {
+      state.count += payload;
+    },
+  },
+  actions: {
+    /**
+     * REVIEW:
+     * Frist Arg is a Context object, (contains all the properties on the vuex store such as 'state', 'getters', 'commit)
+     * Second Arg is the payload
+     *
+     */
+    updateCount({ commit }, payload) {
+      commit("INCREMENT_COUNT", payload);
+    },
+  },
   modules: {},
 
   // REVIEW: getters looks like a `selectors` in redux

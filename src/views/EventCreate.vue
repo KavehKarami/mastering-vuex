@@ -11,12 +11,17 @@
 
     <p>There are {{ catLength }} categories</p>
     <p>{{ findTodo(3) }}</p>
+    <input type="number" v-model.number="incrementBy" />
+    <button @click="incrementCount">increment</button>
   </div>
 </template>
 
 <script>
 import { mapState, mapGetters } from "vuex";
 export default {
+  data: () => ({
+    incrementBy: 0,
+  }),
   computed: {
     // one way:
     /* userName() {
@@ -43,6 +48,12 @@ export default {
     // getTodo() {
     //   return this.$store.getters.findTodo;
     // },
+  },
+  methods: {
+    incrementCount() {
+      // this.$store.commit("INCREMENT_COUNT", this.incrementBy);
+      this.$store.dispatch("updateCount", this.incrementBy);
+    },
   },
 };
 </script>
