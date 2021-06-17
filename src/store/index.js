@@ -1,5 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import EventService from "@/services/EventService.js";
 
 Vue.use(Vuex);
 
@@ -7,7 +8,7 @@ export default new Vuex.Store({
   state: {
     count: 0,
     user: {
-      id: "asad213",
+      id: "Kevin_Carlsen",
       name: "Kevin Carlsen",
     },
     categories: [
@@ -25,6 +26,7 @@ export default new Vuex.Store({
       { id: 3, text: "...", done: true },
       { id: 4, text: "...", done: false },
     ],
+    events: [],
   },
   /**
    * REVIEW:
@@ -46,6 +48,9 @@ export default new Vuex.Store({
     INCREMENT_COUNT(state, payload) {
       state.count += payload;
     },
+    ADD_EVENT(state, event) {
+      state.events.push(event);
+    },
   },
   actions: {
     /**
@@ -56,6 +61,14 @@ export default new Vuex.Store({
      */
     updateCount({ commit }, payload) {
       commit("INCREMENT_COUNT", payload);
+    },
+    async createEvent({ commit }, event) {
+      try {
+        await EventService.createEvent(event);
+        commit("ADD_EVENT", event);
+      } catch (err) {
+        console.log(err);
+      }
     },
   },
   modules: {},

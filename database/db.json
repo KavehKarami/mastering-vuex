@@ -44,6 +44,34 @@
       "date": "2019-02-02T23:27:00.000Z",
       "time": "1:00",
       "attendees": []
+    },
+    {
+      "id": 5525562,
+      "category": "nature",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "is That Works?",
+      "description": "",
+      "location": "Vuex",
+      "date": "2021-06-03T15:38:00.000Z",
+      "time": "20:00",
+      "attendees": []
+    },
+    {
+      "id": 6692088,
+      "category": "animal welfare",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "Lion",
+      "description": "King of Forest",
+      "location": "Amazon",
+      "date": "2021-06-09T15:43:00.000Z",
+      "time": "21:00",
+      "attendees": []
     }
   ]
 }
