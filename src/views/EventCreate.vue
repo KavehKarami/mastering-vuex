@@ -98,10 +98,10 @@ export default {
   methods: {
     incrementCount() {
       // this.$store.commit("INCREMENT_COUNT", this.incrementBy);
-      this.$store.dispatch("updateCount", this.incrementBy);
+      this.$store.dispatch("event/updateCount", this.incrementBy);
     },
     createFreshEvent() {
-      const { user } = this.$store.state;
+      const { user } = this.$store.state.user;
       const id = Math.floor(Math.random() * 10000000);
 
       return {
@@ -118,7 +118,7 @@ export default {
     },
     async submitEvent() {
       try {
-        await this.$store.dispatch("createEvent", this.event);
+        await this.$store.dispatch("event/createEvent", this.event);
         this.$router.push({
           name: "event-show",
           params: { id: this.event.id },

@@ -1,7 +1,11 @@
 <template>
   <div>
-    <h1>Event Listing</h1>
-    <EventCard v-for="event in events.data" :key="event.id" :event="event" />
+    <h1>Event Listing For {{ user.user.name }}</h1>
+    <EventCard
+      v-for="event in event.events.data"
+      :key="event.id"
+      :event="event"
+    />
 
     <router-link
       v-if="page !== 1"
@@ -32,7 +36,7 @@ export default {
     EventCard,
   },
   mounted() {
-    this.$store.dispatch("fetchEvents", { perPage: 3, page: this.page });
+    this.$store.dispatch("event/fetchEvents", { perPage: 3, page: this.page });
   },
   computed: {
     page() {
@@ -40,11 +44,11 @@ export default {
     },
     isLastPage() {
       let totalInPage = this.page * 3;
-      let totalEvent = this.$store.state.events.count;
+      let totalEvent = this.$store.state.event.events.count;
       if (totalInPage < totalEvent) return false;
       return true;
     },
-    ...mapState(["events"]),
+    ...mapState(["event", "user"]),
   },
   // Second way to get events when query changes
   // watch: {
