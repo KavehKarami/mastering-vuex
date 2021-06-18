@@ -25,15 +25,26 @@ export const mutations = {
 };
 
 export const actions = {
-  async createEvent({ commit }, event) {
+  async createEvent({ commit, dispatch }, event) {
     try {
       await EventService.createEvent(event);
       commit("ADD_EVENT", event);
+      const notification = {
+        type: "success",
+        message: "Your event has been created!",
+      };
+      dispatch("notification/add", notification, { root: true });
     } catch (err) {
-      console.log(err);
+      const notification = {
+        type: "error",
+        message: "There was a problem creating your event: " + err.message,
+      };
+      dispatch("notification/add", notification, { root: true });
+      // REVIEW for not going into another router
+      throw err;
     }
   },
-  fetchEvents({ commit }, { perPage, page }) {
+  fetchEvents({ commit, dispatch }, { perPage, page }) {
     EventService.getEvents(perPage, page)
       .then((response) => {
         commit("SET_EVENTS", {
@@ -41,9 +52,15 @@ export const actions = {
           count: response["headers"]["x-total-count"],
         });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        const notification = {
+          type: "error",
+          message: "There was a problem fetching an events: " + err.message,
+        };
+        dispatch("notification/add", notification, { root: true });
+      });
   },
-  fetchEvent({ commit, getters }, id) {
+  fetchEvent({ commit, dispatch, getters }, id) {
     let event = getters.getEventById(id);
     if (event) {
       commit("SET_EVENT", event);
@@ -52,7 +69,13 @@ export const actions = {
         .then((response) => {
           commit("SET_EVENT", response.data);
         })
-        .catch((err) => console.log(err));
+        .catch((err) => {
+          const notification = {
+            type: "error",
+            message: "There was a problem fetching an event: " + err.message,
+          };
+          dispatch("notification/add", notification, { root: true });
+        });
     }
   },
 };

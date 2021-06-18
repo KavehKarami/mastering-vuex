@@ -184,6 +184,20 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 6809115,
+      "category": "housing",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "asd",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
