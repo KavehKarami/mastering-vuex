@@ -26,7 +26,11 @@ export default new Vuex.Store({
       { id: 3, text: "...", done: true },
       { id: 4, text: "...", done: false },
     ],
-    events: [],
+    events: {
+      data: [],
+      count: 0,
+    },
+    event: {},
   },
   /**
    * REVIEW:
@@ -49,7 +53,15 @@ export default new Vuex.Store({
       state.count += payload;
     },
     ADD_EVENT(state, event) {
-      state.events.push(event);
+      state.events.data.push(event);
+      ++state.events.count;
+    },
+    SET_EVENTS(state, { data, count }) {
+      state.events.data = data;
+      state.events.count = +count;
+    },
+    SET_EVENT(state, event) {
+      state.event = event;
     },
   },
   actions: {
@@ -70,6 +82,28 @@ export default new Vuex.Store({
         console.log(err);
       }
     },
+    fetchEvents({ commit }, { perPage, page }) {
+      EventService.getEvents(perPage, page)
+        .then((response) => {
+          commit("SET_EVENTS", {
+            data: response.data,
+            count: response["headers"]["x-total-count"],
+          });
+        })
+        .catch((err) => console.log(err));
+    },
+    fetchEvent({ commit, getters }, id) {
+      let event = getters.getEventById(id);
+      if (event) {
+        commit("SET_EVENT", event);
+      } else {
+        EventService.getEvent(id)
+          .then((response) => {
+            commit("SET_EVENT", response.data);
+          })
+          .catch((err) => console.log(err));
+      }
+    },
   },
   modules: {},
 
@@ -86,5 +120,8 @@ export default new Vuex.Store({
 
     // dynamic getters
     findTodo: (state) => (id) => state.todos.find((todo) => todo.id === id),
+
+    getEventById: (state) => (id) =>
+      state.events.data.find((event) => event.id === id),
   },
 });

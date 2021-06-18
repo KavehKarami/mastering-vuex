@@ -142,6 +142,48 @@
       "date": "",
       "time": "",
       "attendees": []
+    },
+    {
+      "id": 5711424,
+      "category": "sustainability",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "xyz",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 6564157,
+      "category": "food",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "zxc",
+      "description": "",
+      "location": "",
+      "date": "",
+      "time": "",
+      "attendees": []
+    },
+    {
+      "id": 8109180,
+      "category": "housing",
+      "organizer": {
+        "id": "Kevin_Carlsen",
+        "name": "Kevin Carlsen"
+      },
+      "title": "",
+      "description": "",
+      "location": "asd",
+      "date": "",
+      "time": "",
+      "attendees": []
     }
   ]
 }
